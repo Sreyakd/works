@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from dishapi.views import DishesView,DishdetailView
+from dishapi.views import DishesView,DishdetailView,DishdetailModelView,DishModelView
 
 
 
@@ -24,6 +24,8 @@ from dishapi.views import DishesView,DishdetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mydishes/dishes',DishesView.as_view()),
-    path('mydishes/dishes/<int:id>',DishdetailView.as_view())
+    path('mydishes/dishes/<int:id>',DishdetailView.as_view()),
+    path('api/v1/mydishes',DishModelView.as_view()),
+    path('api/v1/mydishes/<int:id>',DishdetailModelView.as_view())
 
 ]
